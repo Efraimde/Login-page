@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: black;
+        }
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .background-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .login-form {
+            background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1;
+            position: relative;
+        }
+        footer {
+            color: white; /* Cor do texto do footer */
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .btn-google {
+            background-color: #4285F4; /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            border: none; /* Remove borda padrão */
+        }
+        .btn-google:hover {
+            background-color: #357ae8; /* Cor de fundo ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop>
+            <source src="videos/cogumelo.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="login-form">
+            <h1 class="text-center text-white">Faça Login</h1>
+            <form action="/login" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="email" class="text-white">Nome de usuário ou e-mail:</label>
+                    <input type="email" class="form-control" id="email" name="email" required aria-required="true" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="text-white">Senha:</label>
+                    <input type="password" class="form-control" id="password" name="password" required aria-required="true" autocomplete="current-password">
+                    <div class="d-flex align-items-center">
+                        <input type="checkbox" id="show-password" aria-label="Mostrar senha">
+                        <label for="show-password" class="mb-0 ml-2 text-white">Mostrar senha</label>
+                    </div>
+                    <small>
+                        <a href="https://example.com/forgot-password" class="text-link text-white">Esqueci minha senha</a>
+                    </small>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                <div class="text-center mt-2">
+                    <p class="text-white">Não tem uma conta? <a href="https://example.com/signup" class="text-link text-white">Inscrição</a></p>
+                </div>
+            </form>
+            <button class="btn btn-google btn-block mt-3" onclick="window.location.href='https://example.com/oauth'">Fazer login com o Google</button>
+        </div>
+    </div>
+    <footer>
+        <p>Desenvolvido por Efraim Oliveira - 2024</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            passwordField.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>
